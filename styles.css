@@ -281,6 +281,73 @@ nav.navbar {
     text-align: center;
 }
 
+/* ================= LOGIN ================= */
+
+#Login {
+    background-color: ##f8f6ed;;
+    padding: 120px 20px 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formulario-login {
+    background-color: #EFE9E3;
+    padding: 40px 35px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.formulario-login legend {
+    font-family: var(--font-title);
+    font-size: 1.6rem;
+    color: #6c1818;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.formulario-login label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #862626;
+}
+
+.formulario-login input {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 20px;
+    border: 1px solid #C9B59C;
+    border-radius: 6px;
+    font-family: var(--font-body);
+    transition: 0.3s;
+    outline: none;
+}
+
+.formulario-login input:focus {
+    border-color: #6c1818;
+    box-shadow: 0 0 0 2px rgba(108, 24, 24, 0.15);
+}
+
+.formulario-login button {
+    width: 100%;
+    padding: 12px;
+    background-color: #862626;
+    color: #F4F7F9;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-family: var(--font-body);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.formulario-login button:hover {
+    background-color: #6c1818;
+}
+
 /* ================= FOOTER ================= */
 
 .contenedor-PiePagina {
