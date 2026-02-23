@@ -3,17 +3,17 @@ function comprueba() {
     limpiarErrores();
 
 
-    let mensaje = document.getElementById("mensaje"); 
+    let mensaje = document.getElementById("mensaje");
 
     if (mensaje) {
-        mensaje.style.display = "none"; 
+        mensaje.style.display = "none";
         mensaje.textContent = "";
     }
 
 
 
     const regex = /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s-]+$/;
-    const regexT = /^[6789][0-9]{8}$/; 
+    const regexT = /^[6789][0-9]{8}$/;
     const regexE = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 
 
@@ -30,7 +30,7 @@ function comprueba() {
         document.getElementById("msn_nombre").innerText =
             "El nombre no puede quedar vacío";
 
-        error = true; 
+        error = true;
     }
 
 
@@ -44,7 +44,7 @@ function comprueba() {
             "El apellido no puede quedar vacío";
 
         error = true;
-    } 
+    }
 
 
 
@@ -88,7 +88,7 @@ function comprueba() {
 
 
     if (servicio.value === "sesión de estudio") {
-        
+
 
         let estudio = document.getElementById("miestudio");
 
@@ -96,7 +96,7 @@ function comprueba() {
 
             estudio.style.borderColor = "red";
             document.getElementById("msn_estudio").innerText =
-                "Estudio no válido";    
+                "Estudio no válido";
 
             error = true;
         }
@@ -126,12 +126,12 @@ function comprueba() {
 
 
     if (servicio.value === "evento") {
-        
+
 
         let radioEvento = document.getElementsByName("evento");
-        let radioEventoSelect = false; 
+        let radioEventoSelect = false;
 
-        for (let i = 0; i < radioEvento.length; i++){
+        for (let i = 0; i < radioEvento.length; i++) {
 
             if (radioEvento[i].checked == true) {
                 radioEventoSelect = true;
@@ -139,7 +139,7 @@ function comprueba() {
         }
 
 
-        if (radioEventoSelect == false){
+        if (radioEventoSelect == false) {
 
             document.getElementById("msn_radio").innerText =
                 "Servicio no seleccionado";
@@ -149,9 +149,9 @@ function comprueba() {
 
 
 
-        let lugar = document.getElementById("lugar"); 
+        let lugar = document.getElementById("lugar");
 
-        if(lugar && lugar.value == "") {
+        if (lugar && lugar.value == "") {
 
             document.getElementById("msn_lugar").innerText =
                 "Es necesario marcar un lugar";
@@ -175,10 +175,10 @@ function comprueba() {
     } else {
 
         const partes = fecha.value.split("-");
-        const fechaFormat = new Date(partes[0], partes[1]-1, partes[2]);
+        const fechaFormat = new Date(partes[0], partes[1] - 1, partes[2]);
         const ahora = new Date();
 
-        if (ahora.getTime() > fechaFormat.getTime()){
+        if (ahora.getTime() > fechaFormat.getTime()) {
 
             fecha.style.borderColor = "red";
             document.getElementById("msn_fecha").innerText =
@@ -195,18 +195,18 @@ function comprueba() {
     if (checkbox.length === 0) {
 
         document.getElementById("msn_checkbox").innerText =
-            "Selecciona al menos una opción";    
+            "Selecciona al menos una opción";
 
         error = true;
     }
 
 
 
-    if (error){
+    if (error) {
 
         alert("Revisar el formulario");
-        return false;     
-    } 
+        return false;
+    }
 
 
     alert("El formulario será enviado");
@@ -216,11 +216,11 @@ function comprueba() {
 
 
 
-function limpiarErrores(){
+function limpiarErrores() {
 
     let mensajes = document.querySelectorAll("p[id^='msn_']");
 
-    for(let i = 0; i < mensajes.length; i++){
+    for (let i = 0; i < mensajes.length; i++) {
 
         mensajes[i].innerText = "";
     }
@@ -228,7 +228,7 @@ function limpiarErrores(){
 
     let campos = document.querySelectorAll("input, textarea, select");
 
-    for(let j = 0; j < campos.length; j++){
+    for (let j = 0; j < campos.length; j++) {
 
         campos[j].style.borderColor = "";
     }
@@ -237,7 +237,7 @@ function limpiarErrores(){
 
 
 
-function completa(){
+function completa() {
 
     let servicio = document.getElementById("servicio").value;
 
@@ -256,11 +256,11 @@ function completa(){
 
         "<select id='lugar'>" +
 
-            "<option value=''>Seleccione</option>" +
-            "<option>Comunidad de Madrid</option>" +
-            "<option>Castilla y León</option>" +
-            "<option>Andalucía</option>" +
-            "<option>Galicia</option>" +
+        "<option value=''>Seleccione</option>" +
+        "<option>Comunidad de Madrid</option>" +
+        "<option>Castilla y León</option>" +
+        "<option>Andalucía</option>" +
+        "<option>Galicia</option>" +
 
         "</select>" +
 
@@ -289,8 +289,8 @@ function completa(){
 
         "<datalist id='estudios'>" +
 
-            "<option value='Galgi Manzanares el Real'>" +
-            "<option value='Galgi San Sebastian de los Reyes'>" +
+        "<option value='Galgi Manzanares el Real'>" +
+        "<option value='Galgi San Sebastian de los Reyes'>" +
 
         "</datalist>" +
 

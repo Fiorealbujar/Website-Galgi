@@ -9,7 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap"
         rel="stylesheet">
 
     <link rel="stylesheet" href="styles.css">
@@ -18,102 +19,103 @@
 
 <body>
 
-<header>
-    <nav class="navbar">
+    <header>
+        <nav class="navbar">
 
-        <a href="index.html">
-            <img src="img/camera_2700667.png" class="logo" alt="Logo">
-        </a>
+            <a href="index.html">
+                <img src="img/camera_2700667.png" class="logo" alt="Logo">
+            </a>
 
-        <h2>Galgi</h2>
+            <h2>Galgi</h2>
 
-        <ul class="nav-links">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="servicios.html">Servicios</a></li>
-            <li><a href="portafolio.html">Portafolio</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-            <li><a href="registro.html">Registro</a></li>
-        </ul>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="portafolio.html">Portafolio</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="registro.html">Registro</a></li>
+            </ul>
 
-    </nav>
-</header>
-
-
-<div class="formulario-contacto">
-
-<form onsubmit="return validarRegistro()">
-
-<h1 class="titulo-form">Crea tu cuenta en Galgi</h1>
-<p class="subtitulo-form">Accede a nuestros servicios exclusivos</p>
+        </nav>
+    </header>
 
 
-<label>Nombre</label><br>
-<input type="text" id="reg_nombre">
-<p id="err_nombre" class="mensaje-error"></p>
+    <div class="formulario-contacto">
+
+        <form onsubmit="return validarRegistro()">
+
+            <h1 class="titulo-form">Crea tu cuenta en Galgi</h1>
+            <p class="subtitulo-form">Accede a nuestros servicios exclusivos</p>
 
 
-<label>Apellidos</label><br>
-<input type="text" id="reg_apellido">
-<p id="err_apellido" class="mensaje-error"></p>
+            <label>Nombre</label><br>
+            <input type="text" id="reg_nombre">
+            <p id="err_nombre" class="mensaje-error"></p>
 
 
-<label>Email</label><br>
-<input type="email" id="reg_email">
-<p id="err_email" class="mensaje-error"></p>
+            <label>Apellidos</label><br>
+            <input type="text" id="reg_apellido">
+            <p id="err_apellido" class="mensaje-error"></p>
 
 
-<label>Teléfono</label><br>
-<input type="text" id="reg_telefono">
-<p id="err_telefono" class="mensaje-error"></p>
+            <label>Email</label><br>
+            <input type="email" id="reg_email">
+            <p id="err_email" class="mensaje-error"></p>
 
 
-<label>Usuario</label><br>
-<input type="text" id="reg_usuario">
-<p id="err_usuario" class="mensaje-error"></p>
+            <label>Teléfono</label><br>
+            <input type="text" id="reg_telefono">
+            <p id="err_telefono" class="mensaje-error"></p>
 
 
-<label>Contraseña</label><br>
-<input type="password" id="reg_pass">
-<p id="err_pass" class="mensaje-error"></p>
+            <label>Usuario</label><br>
+            <input type="text" id="reg_usuario">
+            <p id="err_usuario" class="mensaje-error"></p>
 
 
-<label>Confirmar contraseña</label><br>
-<input type="password" id="reg_pass2">
-<p id="err_pass2" class="mensaje-error"></p>
+            <label>Contraseña</label><br>
+            <input type="password" id="reg_pass">
+            <p id="err_pass" class="mensaje-error"></p>
 
 
-<br>
-
-<input type="checkbox" id="condiciones">
-Acepto las condiciones
-
-<p id="err_condiciones" class="mensaje-error"></p>
+            <label>Confirmar contraseña</label><br>
+            <input type="password" id="reg_pass2">
+            <p id="err_pass2" class="mensaje-error"></p>
 
 
-<br><br>
+            <br>
 
-<button type="submit">Registrarse</button>
-<button type="reset">Cancelar</button>
+            <input type="checkbox" id="condiciones">
+            Acepto las condiciones
 
-</form>
-
-</div>
+            <p id="err_condiciones" class="mensaje-error"></p>
 
 
-<footer>
+            <br><br>
 
-    <div class="Avisos">
-        <a href="AvisosLegales.html">| Avisos Legales |</a>
-        <a href="PolíticaDePrivacidad.html">Política de Privacidad |</a>
-        <a href="PolíticaCookies.html">Política de Cookies |</a>
+            <button type="submit">Registrarse</button>
+            <button type="reset">Cancelar</button>
+
+        </form>
+
     </div>
 
-    <p>&copy; 2025 Galgi. Todos los derechos reservados.</p>
 
-</footer>
+    <footer>
+
+        <div class="Avisos">
+            <a href="AvisosLegales.html">| Avisos Legales |</a>
+            <a href="PolíticaDePrivacidad.html">Política de Privacidad |</a>
+            <a href="PolíticaCookies.html">Política de Cookies |</a>
+        </div>
+
+        <p>&copy; 2025 Galgi. Todos los derechos reservados.</p>
+
+    </footer>
 
 
-<script src="registro.js"></script>
+    <script src="registro.js"></script>
 
 </body>
+
 </html>
