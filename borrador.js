@@ -1,14 +1,14 @@
 function comprueba() {
 //Queremos que salga un mensaje de aviso pero no que se quede ahí de por vida
-    let mensaje = document.getElementById("mensaje"); 
+    let mensaje = document.getElementById("mensaje");
     if (mensaje) {
-        mensaje.style.display = "none"; 
+        mensaje.style.display = "none";
         mensaje.textContent = "";
     }
 
 //Validar los caracteres que ingresen en el nombre/apellido; teléfono; email
     const regex = /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s-]+$/;
-    const regexT = /^\+?[1-9]\d{6,14}$/; 
+    const regexT = /^\+?[1-9]\d{6,14}$/;
     const regexE = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 
 //Empezamos con las validaciones para que no haya campos vacios
@@ -19,7 +19,7 @@ function comprueba() {
     if (nombre.value == "" ||  !regex.test(nombre.value)) {
         nombre.style.borderColor = "red";
         document.getElementById("msn_nombre").innerText="El nombre no puede quedar vacío"
-        error = true; 
+        error = true;
     }
 
 //Validar el Apellido
@@ -28,13 +28,13 @@ function comprueba() {
         apellido.style.borderColor = "red";
         document.getElementById("msn_apellido").innerText="El apellido no puede quedar vacío"
         error = true;
-    } 
+    }
 
 //Validación nºTelefono
     let telefono = document.getElementById("telefono");
     if (telefono.value == "" || !regexT.test(telefono.value)) {
         telefono.style.borderColor = "red";
-        document.getElementById("msn_telefono").innerText="El teléfono no puede quedar vacío"    
+        document.getElementById("msn_telefono").innerText="El teléfono no puede quedar vacío"
         error = true;
     }
 
@@ -42,7 +42,7 @@ function comprueba() {
     let email = document.getElementById("email");
     if (email.value == "" || !regexE.test(email.value)) {
         email.style.borderColor = "red";
-        document.getElementById("msn_email").innerText="El email no puede quedar vacío"    
+        document.getElementById("msn_email").innerText="El email no puede quedar vacío"
         error = true;
     }
 
@@ -50,21 +50,21 @@ function comprueba() {
     let servicio = document.getElementById("servicio");
     if (servicio.value !== "sesión de estudio" && servicio.value !== "evento") {
         servicio.style.borderColor = "red";
-        document.getElementById("msn_servicio").innerText="Servicio no válido"    
+        document.getElementById("msn_servicio").innerText="Servicio no válido"
         error = true;
     }
 
 //Ahora - SI OPCIÓN ESTUDIO (pasa una cosa) - SI OPCIÓN EVENTO (pasa otra)
-    
+
     //ESTUDIO
     //"Asegurarnos" de que es una sesión de estudio
     if (servicio.value === "sesión de estudio") {
-        
+
         // Validar que El estudio no esté vacio
         let estudio = document.getElementById("miestudio");
         if (estudio && estudio.value !== "Galgi Manzanares el Real" && estudio.value !== "Galgi San Sebastian de los Reyes") {
             estudio.style.borderColor = "red";
-            document.getElementById("msn_estudio").innerText="Estudio no válido";    
+            document.getElementById("msn_estudio").innerText="Estudio no válido";
             error = true;
         }
 
@@ -83,13 +83,16 @@ function comprueba() {
         }
     }
 
+
+
+
     //EVENTO
     //"Asegurarnos" de que es un evento
     if (servicio.value === "evento") {
-        
+
         // Validar que radioB Evento no esté vacio
         let radioEvento = document.getElementsByName("evento");
-        let radioEventoSelect = false; 
+        let radioEventoSelect = false;
         for (let i = 0; i < radioEvento.length; i++){
             if (radioEvento[i].checked == true) {
                 radioEventoSelect = true;
@@ -101,7 +104,7 @@ function comprueba() {
         }
 
         // Validar lugar evento
-        let lugar = document.getElementById("lugar"); 
+        let lugar = document.getElementById("lugar");
         if(lugar && lugar.value == "") {
             document.getElementById("msn_lugar").innerText="Es necesario marcar un lugar";
             error = true;
@@ -115,24 +118,125 @@ function comprueba() {
     const ahora = new Date()
     if (ahora.getTime() > fechaFormat.getTime()){
         fecha.style.borderColor = "red";
-        document.getElementById("msn_fecha").innerText="Fecha no válida"    
+        document.getElementById("msn_fecha").innerText="Fecha no válida"
         error = true;
     }
 
-//Validar checkbox    
+//Validar checkbox
     let checkbox = document.querySelectorAll('input[type="checkbox"]:checked');
     if (checkbox.length === 0) {
         checkbox.style.borderColor = "red";
-        document.getElementById("msn_checkbox").innerText="Selecciona al menos una opción"    
+        document.getElementById("msn_checkbox").innerText="Selecciona al menos una opción"
         error = true;
     }
 
     if (error){
         alert ("Revisar el formulario");
-        return !error;     
-    } 
+        return !error;
+    }
     alert("El formulario será enviado");
 }
+
+/* ================= VALIDACIÓN LOGIN ================= */
+
+  // Esperar a que el DOM cargue
+  document.addEventListener("DOMContentLoaded", function () {
+
+      // Capturar elementos
+      const formulario = document.getElementById("formLogin");
+      const email = document.getElementById("email");
+      const password = document.getElementById("password");
+
+      const errorEmail = document.getElementById("errorEmail");
+      const errorPassword = document.getElementById("errorPassword");
+
+      // Expresiones regulares
+      const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const regexPassword = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
+
+      /* ===== FUNCIONES VALIDACIÓN ===== */
+
+      function validarEmail() {
+
+          if (!regexEmail.test(email.value.trim())) {
+              errorEmail.textContent = "Introduce un email válido.";
+              email.classList.add("input-error");
+              email.classList.remove("input-correcto");
+              return false;
+          } else {
+              errorEmail.textContent = "";
+              email.classList.remove("input-error");
+              email.classList.add("input-correcto");
+              return true;
+          }
+      }
+
+      function validarPassword() {
+
+          if (!regexPassword.test(password.value.trim())) {
+              errorPassword.textContent =
+              "Debe tener mínimo 8 caracteres, una mayúscula y un número.";
+              password.classList.add("input-error");
+              password.classList.remove("input-correcto");
+              return false;
+          } else {
+              errorPassword.textContent = "";
+              password.classList.remove("input-error");
+              password.classList.add("input-correcto");
+              return true;
+          }
+      }
+
+      /* ===== EVENTOS ===== */
+
+      // Evento 1 → input (tiempo real)
+      email.addEventListener("input", validarEmail);
+      password.addEventListener("input", validarPassword);
+
+      // Evento 2 → blur
+      email.addEventListener("blur", validarEmail);
+      password.addEventListener("blur", validarPassword);
+
+      // Evento 3 → focus (quita mensaje)
+      email.addEventListener("focus", function () {
+          errorEmail.textContent = "";
+          email.classList.remove("input-error");
+      });
+
+      password.addEventListener("focus", function () {
+          errorPassword.textContent = "";
+          password.classList.remove("input-error");
+      });
+
+      // Evento 4 → submit
+      formulario.addEventListener("submit", function (e) {
+
+          e.preventDefault();
+
+          const emailValido = validarEmail();
+          const passwordValido = validarPassword();
+
+          if (emailValido && passwordValido) {
+
+              mostrarMensajeExito();
+
+          }
+      });
+
+      /* ===== FUNCIÓN CON setTimeout ===== */
+
+      function mostrarMensajeExito() {
+
+          alert("Inicio de sesión con éxito");
+
+          setTimeout(function () {
+              formulario.reset();
+              email.classList.remove("input-correcto");
+              password.classList.remove("input-correcto");
+          }, 3000);
+      }
+
+    });
 
 function completa(){
 //String templates//
@@ -159,7 +263,7 @@ const plantillaEvento = `<p>Evento que le gustaría contratar</p>
             <option value="8">Andalucía</option>
             <option value="9">Galicia</option>
             <option value="10">Cataluña</option>
-            </select>   
+            </select>
             <p id="msn_lugar"></p>
 
             <p>Especifique la localidad del evento</p>
