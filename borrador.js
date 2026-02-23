@@ -83,7 +83,61 @@ function comprueba() {
         }
     }
 
-    /* ================= VALIDACIÓN LOGIN ================= */
+
+
+
+    //EVENTO
+    //"Asegurarnos" de que es un evento
+    if (servicio.value === "evento") {
+
+        // Validar que radioB Evento no esté vacio
+        let radioEvento = document.getElementsByName("evento");
+        let radioEventoSelect = false;
+        for (let i = 0; i < radioEvento.length; i++){
+            if (radioEvento[i].checked == true) {
+                radioEventoSelect = true;
+            }
+        }
+        if (radioEventoSelect == false){
+            document.getElementById("msn_radio").innerText="Servicio no seleccionado";
+            error = true;
+        }
+
+        // Validar lugar evento
+        let lugar = document.getElementById("lugar");
+        if(lugar && lugar.value == "") {
+            document.getElementById("msn_lugar").innerText="Es necesario marcar un lugar";
+            error = true;
+        }
+    }
+
+//Validar calendario
+    let fecha = document.getElementById("fecha");
+    const [a, m, d ] = fecha.value.split("-")
+    const fechaFormat = new Date(a, m-1, d)
+    const ahora = new Date()
+    if (ahora.getTime() > fechaFormat.getTime()){
+        fecha.style.borderColor = "red";
+        document.getElementById("msn_fecha").innerText="Fecha no válida"
+        error = true;
+    }
+
+//Validar checkbox
+    let checkbox = document.querySelectorAll('input[type="checkbox"]:checked');
+    if (checkbox.length === 0) {
+        checkbox.style.borderColor = "red";
+        document.getElementById("msn_checkbox").innerText="Selecciona al menos una opción"
+        error = true;
+    }
+
+    if (error){
+        alert ("Revisar el formulario");
+        return !error;
+    }
+    alert("El formulario será enviado");
+}
+
+/* ================= VALIDACIÓN LOGIN ================= */
 
   // Esperar a que el DOM cargue
   document.addEventListener("DOMContentLoaded", function () {
@@ -146,10 +200,12 @@ function comprueba() {
       // Evento 3 → focus (quita mensaje)
       email.addEventListener("focus", function () {
           errorEmail.textContent = "";
+          email.classList.remove("input-error");
       });
 
       password.addEventListener("focus", function () {
           errorPassword.textContent = "";
+          password.classList.remove("input-error");
       });
 
       // Evento 4 → submit
@@ -171,7 +227,7 @@ function comprueba() {
 
       function mostrarMensajeExito() {
 
-          alert("Inicio de sesión correcto ✅");
+          alert("Inicio de sesión con éxito");
 
           setTimeout(function () {
               formulario.reset();
@@ -181,58 +237,6 @@ function comprueba() {
       }
 
     });
-
-
-    //EVENTO
-    //"Asegurarnos" de que es un evento
-    if (servicio.value === "evento") {
-
-        // Validar que radioB Evento no esté vacio
-        let radioEvento = document.getElementsByName("evento");
-        let radioEventoSelect = false;
-        for (let i = 0; i < radioEvento.length; i++){
-            if (radioEvento[i].checked == true) {
-                radioEventoSelect = true;
-            }
-        }
-        if (radioEventoSelect == false){
-            document.getElementById("msn_radio").innerText="Servicio no seleccionado";
-            error = true;
-        }
-
-        // Validar lugar evento
-        let lugar = document.getElementById("lugar");
-        if(lugar && lugar.value == "") {
-            document.getElementById("msn_lugar").innerText="Es necesario marcar un lugar";
-            error = true;
-        }
-    }
-
-//Validar calendario
-    let fecha = document.getElementById("fecha");
-    const [a, m, d ] = fecha.value.split("-")
-    const fechaFormat = new Date(a, m-1, d)
-    const ahora = new Date()
-    if (ahora.getTime() > fechaFormat.getTime()){
-        fecha.style.borderColor = "red";
-        document.getElementById("msn_fecha").innerText="Fecha no válida"
-        error = true;
-    }
-
-//Validar checkbox
-    let checkbox = document.querySelectorAll('input[type="checkbox"]:checked');
-    if (checkbox.length === 0) {
-        checkbox.style.borderColor = "red";
-        document.getElementById("msn_checkbox").innerText="Selecciona al menos una opción"
-        error = true;
-    }
-
-    if (error){
-        alert ("Revisar el formulario");
-        return !error;
-    }
-    alert("El formulario será enviado");
-}
 
 function completa(){
 //String templates//
