@@ -284,7 +284,7 @@ nav.navbar {
 /* ================= LOGIN ================= */
 
 #Login {
-    background-color: ##f8f6ed;;
+    background-color: #f8f6ed;;
     padding: 120px 20px 80px;
     display: flex;
     justify-content: center;
@@ -298,6 +298,11 @@ nav.navbar {
     width: 100%;
     max-width: 400px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+}
+
+.formulario-login p {
+    text-align: center;
 }
 
 .formulario-login legend {
@@ -310,14 +315,14 @@ nav.navbar {
 
 .formulario-login label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     font-weight: 600;
     color: #862626;
 }
 
 .formulario-login input {
-    width: 100%;
-    padding: 10px 12px;
+    width: 97%;
+    padding: 10px 2px;
     margin-bottom: 20px;
     border: 1px solid #C9B59C;
     border-radius: 6px;
@@ -332,8 +337,10 @@ nav.navbar {
 }
 
 .formulario-login button {
-    width: 100%;
-    padding: 12px;
+    display: block;
+    margin: 0 auto;
+    width: 60%;
+    padding: 12px 22px;
     background-color: #862626;
     color: #F4F7F9;
     border: none;
@@ -346,6 +353,23 @@ nav.navbar {
 
 .formulario-login button:hover {
     background-color: #6c1818;
+}
+
+/* ================= VALIDACIÓN ================= */
+.error {
+    color: red;
+    font-size: 0.8rem;
+    display: block;
+    margin-bottom: 10px;
+    height: 18px;
+}
+
+.input-error {
+    border-color: red !important;
+}
+
+.input-correcto {
+    border-color: green !important;
 }
 
 /* ================= FOOTER ================= */
