@@ -4,20 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto | Galgi Estudio Fotográfico</title>
+    <title>Contacto | Galgi</title>
 
     <!-- Fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap"
         rel="stylesheet">
 
     <!-- Iconos -->
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
 
-    <!-- CSS único -->
+    <!-- CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -25,8 +27,9 @@
 
 <header>
     <nav class="navbar">
+
         <a href="index.html">
-            <img src="img/camera_2700667.png" alt="Logo Estudio Fotográfico" class="logo">
+            <img src="img/camera_2700667.png" class="logo" alt="Logo">
         </a>
 
         <h2>Galgi</h2>
@@ -38,101 +41,96 @@
             <li><a href="contacto.html">Contacto</a></li>
             <li><a href="Login.html">Iniciar Sesión</a></li>
         </ul>
+
     </nav>
 </header>
 
-<!-- ================= FORMULARIO ================= -->
 
 <div class="formulario-contacto">
 
-    <form name="formulario" method="post" action="#" autocomplete="on" accept-charset="UTF-8">
-        <br>
-        <legend>Formulario de Contacto</legend>
+<form onsubmit="return comprueba()">
 
-        <label for="nombre">Nombre</label><br>
-        <input id="nombre" name="nombre" type="text" size="35" placeholder="Nombre" maxlength="30" autofocus><br>
+<h1 class="titulo-form">Formulario de Contacto</h1>
 
-        <label for="apellido">Apellido</label><br>
-        <input id="apellido" name="apellido" type="text" size="35" placeholder="Apellido" maxlength="30"><br>
 
-        <label for="telefono">Teléfono</label><br>
-        <input id="telefono" name="telefono" type="text" size="35" placeholder="Teléfono" maxlength="15"><br>
+<label for="nombre">Nombre</label><br>
+<input type="text" id="nombre">
+<p id="msn_nombre" class="mensaje-error"></p>
 
-        <label for="email">Email</label><br>
-        <input id="email" name="email" type="email" size="35" placeholder="Email" maxlength="40"><br>
 
-        <p>Servicio sobre el que le gustaría recibir información</p>
+<label for="apellido">Apellido</label><br>
+<input type="text" id="apellido">
+<p id="msn_apellido" class="mensaje-error"></p>
 
-        <input class="checkbox" type="checkbox" name="servicio" value="bodas"> Fotografía de bodas<br>
-        <input class="checkbox" type="checkbox" name="servicio" value="retratos"> Retratos profesionales<br>
-        <input class="checkbox" type="checkbox" name="servicio" value="eventos"> Eventos corporativos<br>
-        <input class="checkbox" type="checkbox" name="servicio" value="familia"> Sesiones familiares<br>
 
-        <p>Seleccione el estudio que le gustaría visitar</p>
+<label for="telefono">Teléfono</label><br>
+<input type="text" id="telefono">
+<p id="msn_telefono" class="mensaje-error"></p>
 
-        <input list="estudio" name="miestudio">
 
-        <datalist id="estudio">
-            <optgroup label="Estudios">
-                <option value="Galgi Manzanares el Real">
-                <option value="Galgi San Sebastián de los Reyes">
-            </optgroup>
-        </datalist>
+<label for="email">Email</label><br>
+<input type="email" id="email">
+<p id="msn_email" class="mensaje-error"></p>
 
-        <p>Comentarios</p>
 
-        <textarea rows="8" cols="50" name="comentarios" id="comentarios"></textarea><br>
+<h3>Servicio</h3>
 
-        <button type="submit">Enviar</button>
-        <button type="reset">Cancelar</button>
+<input list="listaServicios" id="servicio" oninput="completa()">
 
-    </form>
+<datalist id="listaServicios">
+    <option value="evento">
+    <option value="sesión de estudio">
+</datalist>
 
+<p id="msn_servicio" class="mensaje-error"></p>
+
+
+<div id="opcional"></div>
+
+
+<h3>Fecha</h3>
+
+<input type="date" id="fecha">
+<p id="msn_fecha" class="mensaje-error"></p>
+
+
+<h3>Horario</h3>
+
+<input type="checkbox"> Mañana
+<input type="checkbox"> Tarde
+<input type="checkbox"> Noche
+
+<p id="msn_checkbox" class="mensaje-error"></p>
+
+
+<h3>Comentarios</h3>
+
+<textarea id="comentarios"></textarea>
+
+
+<br><br>
+
+<button type="submit">Enviar</button>
+<button type="reset">Cancelar</button>
+
+</form>
 </div>
 
-<!-- ================= FOOTER ================= -->
-
-<section class="contenedor-PiePagina" id="contact">
-
-    <div class="contacto-columna icono-PiePagina">
-        <img src="img/camera423.png" alt="">
-        <h3>Estudio Fotográfico</h3>
-    </div>
-
-    <div class="contacto-columna contacto-PiePagina">
-        <h3>Información de Contacto</h3>
-        <div class="informacion-PiePagina">
-            <p><i class="fa-solid fa-phone-volume"></i> Teléfono: 689 521 447</p>
-            <p><i class="fa-solid fa-envelope"></i> Email: galgi.fotografía@gmail.com</p>
-            <p><i class="fa-solid fa-location-dot"></i> Dirección: C/De Cantabria, nº43, 28703 San Sebastián de los Reyes, Madrid</p>
-        </div>
-
-        <div class="icono-Whatsapp">
-            <a href="https://wa.me/34617722215" target="_blank" title="Contactar por WhatsApp">
-                <i class="fa-brands fa-whatsapp"></i>
-            </a>
-        </div>
-    </div>
-
-    <div class="contacto-columna mapa-columna">
-        <h3>Localización</h3>
-        <div class="mapa-PiePagina">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6062.763764553354!2d-3.628687724165384!3d40.55524337141766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422ce0d8531bed%3A0x46c44d00ea43d5d5!2sC.%20De%20Cantabria%2C%20San%20Sebasti%C3%A1n%20de%20los%20Reyes%2C%20Madrid!5e0!3m2!1ses!2ses!4v1763126084146!5m2!1ses!2ses"
-                allowfullscreen="" loading="lazy"></iframe>
-        </div>
-    </div>
-
-</section>
 
 <footer>
+
     <div class="Avisos">
-        <a href="AvisosLegales.html" target="_blank">| Avisos Legales |</a>
-        <a href="PolíticaDePrivacidad.html" target="_blank">Política de Privacidad |</a>
-        <a href="PolíticaCookies.html" target="_blank">Política de Cookies |</a>
+        <a href="AvisosLegales.html">| Avisos Legales |</a>
+        <a href="PolíticaDePrivacidad.html">Política de Privacidad |</a>
+        <a href="PolíticaCookies.html">Política de Cookies |</a>
     </div>
-    <p>&copy; 2025 Estudio Fotográfico Galgi. Todos los derechos reservados.</p>
+
+    <p>&copy; 2025 Galgi. Todos los derechos reservados.</p>
+
 </footer>
+
+
+<script src="contacto.js"></script>
 
 </body>
 </html>
