@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | Galgi</title>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+
+            <a href="index.html">
+                <img src="img/camera_2700667.png" class="logo" alt="Logo">
+            </a>
+
+            <h2>Galgi</h2>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="pages/servicios.html">Servicios</a></li>
+                <li><a href="pages/portafolio.html">Portafolio</a></li>
+                <li><a href="pages/contacto.html">Contacto</a></li>
+                <li><a href="pages/Login.html" class="btn-login">Iniciar Sesión</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+
+    <div class="formulario-contacto">
+
+        <form onsubmit="return comprueba()">
+
+            <h1 class="titulo-form">Formulario de Contacto</h1>
+
+
+            <label for="nombre">Nombre</label><br>
+            <input type="text" id="nombre">
+            <p id="msn_nombre" class="mensaje-error"></p>
+
+
+            <label for="apellido">Apellido</label><br>
+            <input type="text" id="apellido">
+            <p id="msn_apellido" class="mensaje-error"></p>
+
+
+            <label for="telefono">Teléfono</label><br>
+            <input type="text" id="telefono">
+            <p id="msn_telefono" class="mensaje-error"></p>
+
+
+            <label for="email">Email</label><br>
+            <input type="email" id="email">
+            <p id="msn_email" class="mensaje-error"></p>
+
+
+            <h3>Servicio</h3>
+
+            <input list="listaServicios" id="servicio" oninput="completa()">
+
+            <datalist id="listaServicios">
+                <option value="evento">
+                <option value="sesión de estudio">
+            </datalist>
+
+            <p id="msn_servicio" class="mensaje-error"></p>
+
+
+            <div id="opcional"></div>
+
+
+            <h3>Fecha</h3>
+
+            <input type="date" id="fecha">
+            <p id="msn_fecha" class="mensaje-error"></p>
+
+
+            <h3>Horario</h3>
+
+            <input type="checkbox"> Mañana
+            <input type="checkbox"> Tarde
+            <input type="checkbox"> Noche
+
+            <p id="msn_checkbox" class="mensaje-error"></p>
+
+
+            <h3>Comentarios</h3>
+
+            <textarea id="comentarios"></textarea>
+
+
+            <br><br>
+
+            <button type="submit">Enviar</button>
+            <button type="reset">Cancelar</button>
+
+        </form>
+    </div>
+
+
+    <footer>
+
+        <div class="Avisos">
+            <a href="AvisosLegales.html">| Avisos Legales |</a>
+            <a href="PolíticaDePrivacidad.html">Política de Privacidad |</a>
+            <a href="PolíticaCookies.html">Política de Cookies |</a>
+        </div>
+
+        <p>&copy; 2025 Galgi. Todos los derechos reservados.</p>
+
+    </footer>
+
+
+    <script src="contacto.js"></script>
+
+</body>
+
+</html>
